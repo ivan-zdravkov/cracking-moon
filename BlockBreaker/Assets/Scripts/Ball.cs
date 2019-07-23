@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class Ball : MonoBehaviour
 {
     [SerializeField] Paddle paddle;
-    [SerializeField] float xPush = 2f;
+    [SerializeField] float xPush = 10f;
     [SerializeField] float yPush = 10f;
 
     Vector2 paddleToBallDistance;
@@ -42,7 +42,10 @@ public class Ball : MonoBehaviour
     {
         if (Input.GetMouseButton((int)MouseButton.LeftMouse))
         {
-            this.GetComponent<Rigidbody2D>().velocity = new Vector2(x: xPush, y: yPush);
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(
+                x: UnityEngine.Random.Range(-this.xPush, this.xPush),
+                y: yPush
+            );
 
             this.hasStarted = true;
         }
