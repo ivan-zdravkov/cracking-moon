@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    [SerializeField] float screenWidthInUnits = 16;
+    [SerializeField] float screenWidthInUnits = 16f;
 
     void Update()
     {
-        transform.position = new Vector2(
+        this.transform.position = new Vector3(
             x: Mathf.Clamp(
                 value: Input.mousePosition.x / Screen.width * this.screenWidthInUnits,
-                min: 0,
+                min: 0f,
                 max: this.screenWidthInUnits
             ),
-            y: transform.position.y
+            y: this.transform.position.y,
+            z: 5
         );
     }
 }
