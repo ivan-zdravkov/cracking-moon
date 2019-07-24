@@ -15,7 +15,7 @@ public class Paddle : MonoBehaviour
                 max: this.screenWidthInUnits
             ),
             y: this.transform.position.y,
-            z: 5
+            z: 1
         );
     }
 }
