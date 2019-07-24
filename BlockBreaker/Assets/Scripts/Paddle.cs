@@ -5,6 +5,7 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     [SerializeField] float screenWidthInUnits = 16f;
+    [SerializeField] AudioClip bounceSound;
 
     void Update()
     {
@@ -17,5 +18,10 @@ public class Paddle : MonoBehaviour
             y: this.transform.position.y,
             z: 1
         );
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        AudioSource.PlayClipAtPoint(this.bounceSound, this.transform.position);
     }
 }
