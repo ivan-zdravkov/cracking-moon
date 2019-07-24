@@ -50,4 +50,10 @@ public class Ball : MonoBehaviour
             this.hasStarted = true;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (this.hasStarted)
+            this.GetComponent<AudioSource>().Play();
+    }
 }
