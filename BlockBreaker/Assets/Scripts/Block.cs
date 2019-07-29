@@ -7,12 +7,12 @@ public class Block : MonoBehaviour
     [SerializeField] AudioClip breakSound;
 
     Level level;
-    GameStatus gameStatus;
+    GameSession gameStatus;
 
     private void Start()
     {
         this.level = FindObjectOfType<Level>();
-        this.gameStatus = FindObjectOfType<GameStatus>();
+        this.gameStatus = FindObjectOfType<GameSession>();
 
         this.level.CountBreakableBlocks();
     }

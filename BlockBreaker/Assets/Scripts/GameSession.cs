@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class GameStatus : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlock = 83;
@@ -11,7 +11,7 @@ public class GameStatus : MonoBehaviour
 
     void Awake()
     {
-        bool isFirst = FindObjectsOfType<GameStatus>().Length == 1;
+        bool isFirst = FindObjectsOfType<GameSession>().Length == 1;
 
         if (isFirst)
         {
@@ -33,6 +33,11 @@ public class GameStatus : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+    }
+
+    public void ResetGame()
+    {
+        Destroy(this.gameObject);
     }
 
     public void AddToScore()
