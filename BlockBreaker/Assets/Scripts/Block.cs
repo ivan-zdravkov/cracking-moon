@@ -33,7 +33,7 @@ public class Block : MonoBehaviour
     {
         this.timesHit++;
 
-        if (this.timesHit >= this.hitSprites.Length + 1)
+        if (this.timesHit >= this.hitSprites.Length)
             DestroyBlock();
         else
             ShowNextHitSprite();
