@@ -1,19 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    [SerializeField] AudioClip breakSound;
+    [SerializeField] AudioClip breakSFX;
     [SerializeField] GameObject sparklesVFX;
- 
+    [SerializeField] int maxHits = 3;
+    [SerializeField] Sprite[] hitSprites;
+        
     Level level;
-    GameSession gameStatus;
+    GameSession gameSession;
+
+    int timesHit = 0;
 
     private void Start()
     {
         this.level = FindObjectOfType<Level>();
-        this.gameStatus = FindObjectOfType<GameSession>();
+        this.gameSession = FindObjectOfType<GameSession>();
 
         if (this.tag == "Breakable")
             this.level.CountBlocks();
@@ -22,23 +27,38 @@ public class Block : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (this.tag == "Breakable")
+            HandleHit();
+    }
+
+    private void HandleHit()
+    {
+        this.timesHit++;
+
+        if (this.timesHit >= this.maxHits)
             DestroyBlock();
+        else
+            ShowNextHitSprite();
+    }
+
+    private void ShowNextHitSprite()
+    {
+        GetComponent<SpriteRenderer>().sprite = this.hitSprites[timesHit];
     }
 
     private void DestroyBlock()
     {
-        this.PlayDestroySFX();
+        this.PlayBreakSFX();
         this.TriggerSparklesVFX();
 
         Destroy(this.gameObject);
 
-        this.gameStatus.AddToScore();
+        this.gameSession.AddToScore();
         this.level.BlockDestroyed();
     }
 
-    private void PlayDestroySFX()
+    private void PlayBreakSFX()
     {
-        AudioSource.PlayClipAtPoint(this.breakSound, this.transform.position);
+        AudioSource.PlayClipAtPoint(this.breakSFX, this.transform.position);
     }
 
     private void TriggerSparklesVFX()
