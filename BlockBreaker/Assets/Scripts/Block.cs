@@ -15,12 +15,14 @@ public class Block : MonoBehaviour
         this.level = FindObjectOfType<Level>();
         this.gameStatus = FindObjectOfType<GameSession>();
 
-        this.level.CountBreakableBlocks();
+        if (this.tag == "Breakable")
+            this.level.CountBlocks();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if (this.tag == "Breakable")
+            DestroyBlock();
     }
 
     private void DestroyBlock()

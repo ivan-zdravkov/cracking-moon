@@ -6,7 +6,7 @@ public class Level : MonoBehaviour
 {
     int breakableBlock;
 
-    public void CountBreakableBlocks()
+    public void CountBlocks()
     {
         this.breakableBlock++;
     }
