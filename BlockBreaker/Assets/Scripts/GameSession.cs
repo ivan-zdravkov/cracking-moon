@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class GameSession : MonoBehaviour
@@ -28,12 +29,17 @@ public class GameSession : MonoBehaviour
 
     void Start()
     {
-        this.scoreText.SetText(this.score.ToString());
+        this.UpdateScore();
     }
 
     void Update()
     {
         Time.timeScale = gameSpeed;
+    }
+
+    public int GetScore()
+    {
+        return this.score;
     }
 
     public bool IsAutoPlayEnabled
@@ -52,6 +58,13 @@ public class GameSession : MonoBehaviour
     public void AddToScore()
     {
         this.score += this.pointsPerBlock;
-        this.scoreText.SetText(this.score.ToString());
+
+        this.UpdateScore();
+    }
+
+    private void UpdateScore()
+    {
+        if (this.scoreText)
+            this.scoreText.SetText(this.score.ToString());
     }
 }
