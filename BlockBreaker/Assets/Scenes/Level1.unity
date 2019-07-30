@@ -1044,7 +1044,7 @@ PrefabInstance:
     - target: {fileID: 1216454966437073531, guid: 18a664684ac9af24eabb477dafd8cf0c,
         type: 3}
       propertyPath: m_Name
-      value: GameStatus
+      value: GameSession
       objectReference: {fileID: 0}
     - target: {fileID: 2025885671877188069, guid: 18a664684ac9af24eabb477dafd8cf0c,
         type: 3}
@@ -1105,6 +1105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7930042567993983491, guid: 18a664684ac9af24eabb477dafd8cf0c,
+        type: 3}
+      propertyPath: isAutoPlayEnabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a664684ac9af24eabb477dafd8cf0c, type: 3}

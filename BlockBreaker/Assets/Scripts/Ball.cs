@@ -40,6 +40,14 @@ public class Ball : MonoBehaviour
         }
     }
 
+    public bool HasStarted
+    {
+        get
+        {
+            return this.hasStarted;
+        }
+    }
+
     private void LockBallToPaddle()
     {
         Vector2 paddlePosition = new Vector2(

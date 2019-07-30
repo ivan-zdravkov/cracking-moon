@@ -8,6 +8,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
 
     [SerializeField] int score = 0;
+    [SerializeField] bool isAutoPlayEnabled = false;
 
     void Awake()
     {
@@ -33,6 +34,14 @@ public class GameSession : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+    }
+
+    public bool IsAutoPlayEnabled
+    {
+        get
+        {
+            return isAutoPlayEnabled;
+        }
     }
 
     public void ResetGame()
