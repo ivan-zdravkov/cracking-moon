@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7785114907337348192}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bc7a4711e9ba00840b6348d698e1ac37, type: 3}
   - {fileID: 8300000, guid: b27d5375740567d4f916f4e6726478ed, type: 3}
   - {fileID: 8300000, guid: e70a73cdae0bbe243920cb6107e00757, type: 3}
+  randomFactor: 0.2
 --- !u!82 &7785114907337348192
 AudioSource:
   m_ObjectHideFlags: 0

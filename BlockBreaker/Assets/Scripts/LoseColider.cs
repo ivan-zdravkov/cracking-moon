@@ -1,13 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class LoseColider : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    Level level;
+
+    private void Start()
     {
-        if (collision.gameObject.name == "Ball")
-            SceneManager.LoadScene("GameOver");
+        this.level = FindObjectOfType<Level>();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            this.level.BallDroped();
+
+            Destroy(collision.gameObject);
+        }
     }
 }
