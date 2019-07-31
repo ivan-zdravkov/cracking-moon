@@ -35,6 +35,15 @@ public class GameSession : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            this.isAutoPlayEnabled = !this.isAutoPlayEnabled;
+
+        if (this.gameSpeed < 10 && (Input.GetKeyDown(KeyCode.UpArrow)))
+            this.gameSpeed += 1f;
+
+        if (this.gameSpeed > 1 && (Input.GetKeyDown(KeyCode.DownArrow)))
+            this.gameSpeed -= 1f;
     }
 
     public int GetScore()
